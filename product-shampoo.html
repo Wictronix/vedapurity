@@ -527,26 +527,27 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" method="post" class="row g-3">
+                <form action="https://api.web3forms.com/submit" method="post" class="row g-3">
+                    <input type="hidden" name="access_key" value="cd14834f-1918-4a42-874f-4d7c61b7e2d5">
                     <div class="col-md-6">
                         <label class="form-label">Full Name *</label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" name="name" class="form-control" required>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Phone Number *</label>
-                        <input type="tel" class="form-control" required>
+                        <input type="tel" name="phone" class="form-control" required>
                     </div>
                     <div class="col-12">
                         <label class="form-label">Complete Delivery Address *</label>
-                        <textarea class="form-control" rows="2" required></textarea>
+                        <textarea name="address" class="form-control" rows="2" required></textarea>
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Pincode / Postal Code *</label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" name="pincode" class="form-control" required>
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Select Product</label>
-                        <input type="text" class="form-control" value="VedaPurity Natural Herbal Shampoo (200ml)"
+                        <input type="text" name="product" class="form-control" value="VedaPurity Natural Herbal Shampoo (200ml)"
                             readonly>
                     </div>
                     <div class="col-md-4">
@@ -554,14 +555,14 @@
                         <div class="input-group">
                             <button class="btn btn-outline-secondary" type="button"
                                 onclick="var q=document.getElementById('qty');if(q.value>1)q.value--">-</button>
-                            <input type="number" class="form-control text-center" id="qty" value="1" min="1">
+                            <input type="number" name="quantity" class="form-control text-center" id="qty" value="1" min="1">
                             <button class="btn btn-outline-secondary" type="button"
                                 onclick="var q=document.getElementById('qty');q.value++">+</button>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="codCheck" required>
+                            <input class="form-check-input" type="checkbox" name="cod" id="codCheck" required>
                             <label class="form-check-label" for="codCheck">I want Cash on Delivery</label>
                         </div>
                     </div>
