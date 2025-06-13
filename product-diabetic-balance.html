@@ -187,10 +187,7 @@
                                                                         Diabetic Balance Tablets</a>
                                                                 </li>
                                                                 <li><a href="product-ortho.html">VedaPurity Ortho
-                                                                        Medicine</a></li>
-                                                                <li><a href="product-shampoo.html">VedaPurity Natural
-                                                                        Herbal Shampoo
-                                                                        (200ml)</a></li>
+                                                                        Remedy</a></li>
                                                             </ul>
                                                         </li>
                                                         <li class="mega-menu-item"><a href="blog.html">Blog</a></li>
@@ -243,14 +240,59 @@
                     </div>
                     <div class="product-info">
                         <h1>VedaPurity Diabetic Balance Tablets</h1>
-                        <div class="price">₹1,875 <span class="old-price">₹2,000</span></div>
-                        <div class="offer">Buy 2 for ₹3,000 (Save ₹750)</div>
+                        <div class="price">₹2,100 <span class="old-price">₹3,000</span></div>
+                        <div class="offer">Buy 2 for ₹3,600 (Save ₹600)</div>
                         <div class="rating">⭐ 4.9/5 Rated by 5,000+ users</div>
                         <p>Herbal tablets designed to manage blood sugar naturally, energize the body, and support
                             overall
                             wellness—crafted with a proprietary blend of 15 Ayurvedic herbs.</p>
                         <button class="order-btn" data-bs-toggle="modal" data-bs-target="#orderModal">Order Now - Cash
                             on Delivery</button>
+                        <div style="display:inline-block;margin-left:10px;">
+                            <div class="input-group" style="width:180px;display:inline-flex;vertical-align:middle;">
+                                <button type="button" class="btn btn-outline-secondary"
+                                    style="padding:4px 12px;font-size:1.2rem;" onclick="updateRzpQty(-1)">−</button>
+                                <input type="number" id="rzp-qty" value="1" min="1"
+                                    style="width:80px;text-align:center;font-weight:600;" readox`nly>
+                                <button type="button" class="btn btn-outline-secondary"
+                                    style="padding:4px 12px;font-size:1.2rem;" onclick="updateRzpQty(1)">+</button>
+                            </div>
+                            <span id="rzp-price" style="margin-left:12px;font-weight:600;color:#388e3c;">₹2,100</span>
+                            <script>
+                                function getRzpAmount(qty) {
+                                    if (qty == 1) return 210000;
+                                    if (qty == 2) return 360000;
+                                    if (qty == 3) return 540000;
+                                    if (qty > 3) return 180000 * qty;
+                                    return 210000;
+                                }
+                                function getRzpDisplayPrice(qty) {
+                                    if (qty == 1) return "₹2,100";
+                                    if (qty == 2) return "₹3,600";
+                                    if (qty == 3) return "₹5,400";
+                                    if (qty > 3) return "₹" + (1800 * qty);
+                                    return "₹2,100";
+                                }
+                                function updateRzpQty(delta) {
+                                    var qtyInput = document.getElementById('rzp-qty');
+                                    var priceSpan = document.getElementById('rzp-price');
+                                    var qty = parseInt(qtyInput.value) || 1;
+                                    qty += delta;
+                                    if (qty < 1) qty = 1;
+                                    qtyInput.value = qty;
+                                    priceSpan.textContent = getRzpDisplayPrice(qty);
+                                }
+                                // Also update price if user changes input manually (shouldn't happen, but for safety)
+                                document.getElementById('rzp-qty').addEventListener('change', function () {
+                                    var qty = parseInt(this.value) || 1;
+                                    if (qty < 1) qty = 1;
+                                    this.value = qty;
+                                    document.getElementById('rzp-price').textContent = getRzpDisplayPrice(qty);
+                                });
+                            </script>
+                            <button id="rzp-button1" class="order-btn" style="background:#f37254;margin-left:10px;">Pay
+                                Now - Online</button>
+                        </div>
                     </div>
                 </div>
                 <h3>Key Benefits</h3>
@@ -446,6 +488,14 @@
                                             us. </div>
                                         <div class="marquee-text">Like & follow from you. new free to use projects from
                                             us. </div>
+                                        <div class="marquee-text">Like & follow from you. new free to use projects from
+                                            us. </div>
+                                        <div class="marquee-text">Like & follow from you. new free to use projects from
+                                            us. </div>
+                                        <div class="marquee-text">Like & follow from you. new free to use projects from
+                                            us. </div>
+                                        <div class="marquee-text">Like & follow from you. new free to use projects from
+                                            us. </div>
                                     </div>
                                 </div>
                             </div>
@@ -508,6 +558,10 @@
                         <label class="form-label">Phone Number *</label>
                         <input type="tel" name="phone" class="form-control" required>
                     </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Email *</label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
                     <div class="col-12">
                         <label class="form-label">Complete Delivery Address *</label>
                         <textarea name="address" class="form-control" rows="2" required></textarea>
@@ -518,14 +572,16 @@
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Select Product</label>
-                        <input type="text" name="product" class="form-control" value="VedaPurity Diabetic Balance Tablets" readonly>
+                        <input type="text" name="product" class="form-control"
+                            value="VedaPurity Diabetic Balance Tablets" readonly>
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Quantity</label>
                         <div class="input-group">
                             <button class="btn btn-outline-secondary" type="button"
                                 onclick="var q=document.getElementById('qty');if(q.value>1)q.value--">-</button>
-                            <input type="number" name="quantity" class="form-control text-center" id="qty" value="1" min="1">
+                            <input type="number" name="quantity" class="form-control text-center" id="qty" value="1"
+                                min="1">
                             <button class="btn btn-outline-secondary" type="button"
                                 onclick="var q=document.getElementById('qty');q.value++">+</button>
                         </div>
@@ -545,5 +601,109 @@
     </div>
 </div>
 <!-- End Order Form Modal -->
+<!-- Razorpay Online Payment Modal -->
+<div class="modal fade" id="rzpModal" tabindex="-1" aria-labelledby="rzpModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="rzpModalLabel">Pay Online - Enter Your Details</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="rzpForm" class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Full Name *</label>
+                        <input type="text" name="name" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Phone Number *</label>
+                        <input type="tel" name="phone" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Email *</label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Complete Delivery Address *</label>
+                        <textarea name="address" class="form-control" rows="2" required></textarea>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Pincode / Postal Code *</label>
+                        <input type="text" name="pincode" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Select Product</label>
+                        <input type="text" name="product" class="form-control"
+                            value="VedaPurity Diabetic Balance Tablets" readonly>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Quantity</label>
+                        <input type="number" name="quantity" class="form-control text-center" id="rzpFormQty" value="1"
+                            min="1" readonly>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn order-btn w-100">Proceed to Pay Online</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    function getRzpAmount(qty) {
+        if (qty == 1) return 210000;
+        if (qty == 2) return 360000;
+        if (qty == 3) return 540000;
+        if (qty > 3) return 180000 * qty;
+        return 210000;
+    }
+    // Open Razorpay modal form on Pay Now click
+    document.getElementById('rzp-button1').onclick = function (e) {
+        // Set quantity in modal
+        document.getElementById('rzpFormQty').value = document.getElementById('rzp-qty').value;
+        var rzpModal = new bootstrap.Modal(document.getElementById('rzpModal'));
+        rzpModal.show();
+        e.preventDefault();
+    }
+    // Handle Razorpay form submit
+    document.getElementById('rzpForm').onsubmit = function (e) {
+        e.preventDefault();
+        var form = e.target;
+        var name = form.name.value;
+        var phone = form.phone.value;
+        var email = form.email.value;
+        var address = form.address.value;
+        var pincode = form.pincode.value;
+        var qty = parseInt(form.quantity.value) || 1;
+        var options = {
+            "key": "rzp_test_4q3yim6VGVOXij",
+            "amount": getRzpAmount(qty),
+            "currency": "INR",
+            "name": "Veda Purity",
+            "description": "Diabetic Balance Product",
+            "image": "images/Banner_Veda_Purity.jpg",
+            "prefill": {
+                "name": name,
+                "contact": phone
+            },
+            "notes": {
+                "address": address,
+                "pincode": pincode,
+                "product": "VedaPurity Diabetic Balance Tablets",
+                "quantity": qty
+            },
+            "theme": { "color": "#f37254" },
+            "handler": function (response) {
+                alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+        // Hide modal after opening Razorpay
+        var rzpModal = bootstrap.Modal.getInstance(document.getElementById('rzpModal'));
+        rzpModal.hide();
+    }
+</script>
 
 </html>
