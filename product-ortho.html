@@ -480,6 +480,56 @@
         </footer>
         <!-- footer end -->
     </div><!-- page end -->
+    <!-- WhatsApp Floating Button Start -->
+    <a href="https://wa.me/+919991595515" target="_blank" aria-label="Chat on WhatsApp" class="whatsapp-float-btn">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-text">WhatsApp Us</span>
+    </a>
+    <style>
+        .whatsapp-float-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            background: #25d366;
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 50px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: padding 0.3s, width 0.3s;
+            overflow: hidden;
+        }
+
+        .whatsapp-float-btn .fab.fa-whatsapp {
+            font-size: 1.7rem;
+            transition: margin-right 0.3s;
+        }
+
+        .whatsapp-float-btn .whatsapp-text {
+            opacity: 0;
+            max-width: 0;
+            white-space: nowrap;
+            transition: opacity 0.3s, max-width 0.3s;
+            overflow: hidden;
+        }
+
+        .whatsapp-float-btn:hover,
+        .whatsapp-float-btn:focus {
+            padding: 12px 24px 12px 20px;
+        }
+
+        .whatsapp-float-btn:hover .whatsapp-text,
+        .whatsapp-float-btn:focus .whatsapp-text {
+            opacity: 1;
+            max-width: 120px;
+        }
+    </style>
+    <!-- WhatsApp Floating Button End -->
     <!-- Javascript -->
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/jquery-migrate-3.4.1.min.js"></script>
@@ -511,6 +561,12 @@
             document.getElementById('mainProductImg').src = thumb.src;
         }
     </script>
+    <script>
+        window.onload = function () {
+            // Reset the form fields when the page loads
+            document.getElementById("form").reset();
+        };
+    </script>
 </body>
 
 <!-- Order Form Modal (moved here for proper overlay) -->
@@ -524,6 +580,7 @@
             <div class="modal-body">
                 <form action="https://api.web3forms.com/submit" method="post" class="row g-3">
                     <input type="hidden" name="access_key" value="cd14834f-1918-4a42-874f-4d7c61b7e2d5">
+                    <input type="hidden" name="redirect" value="https://vedapurity.com/thankyou.html">
                     <div class="col-md-6">
                         <label class="form-label">Full Name *</label>
                         <input type="text" name="name" class="form-control" required>
